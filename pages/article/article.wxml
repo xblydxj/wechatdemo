@@ -1,0 +1,7 @@
+<view class="container">
+  <text class="description">小程序不能打开外链，这有啥用？？</text>
+  <text class="title">标题：{{title}}</text>
+  <image class="imangry" src="./shengqi.jpg" mode="widthFix"></image>
+  <text class="url">链接：{{url}}</text>
+  <button class="copy" bindtap='onClick'>{{isCopy?"已复制":"复制"}}</button>
+</view>

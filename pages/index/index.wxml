@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}\n小程序试手小Demo</text>
+    </block>
+  </view>
+  <modal no-cancel="true" hidden="{{modalHidden}}" bindconfirm="onSaveClick" bindconfirm="onConfirmClick">
+      <view >
+          <image class="modalImage" src="{{meizhi[current].url}}" mode="widthFix"></image>
+      </view>
+  </modal>
+  <swiper class='banner' indicator-dots="true" autoplay="{{isScroll}}" bindchange="EventHandle">
+    <block wx:for="{{meizhi}}">
+      <swiper-item>
+        <image src="{{item.url}}" mode="aspectFit" class="banner-image" bindtap="onImageClick" binderror="imageError"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <button class="enter-main" bindtap="enterMain">进入主页   → </button>
+</view>
